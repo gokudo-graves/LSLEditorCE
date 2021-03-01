@@ -62,7 +62,7 @@ namespace LSLEditor.Tools
 		private XmlDocument GetXmlFromResource(string strName)
 		{
 			XmlDocument xml = new XmlDocument();
-			Stream resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("LSLEditor." + strName);
+			Stream resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("LSLEditor." + strName.ToLower());
 
 			if (resource != null)
 				xml.Load(resource);

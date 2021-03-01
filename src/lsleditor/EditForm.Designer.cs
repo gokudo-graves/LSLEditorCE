@@ -35,6 +35,7 @@ namespace LSLEditor
             this.tvOutline = new System.Windows.Forms.TreeView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -90,6 +91,7 @@ namespace LSLEditor
             this.numberedTextBoxUC1.Name = "numberedTextBoxUC1";
             this.numberedTextBoxUC1.Size = new System.Drawing.Size(393, 228);
             this.numberedTextBoxUC1.TabIndex = 4;
+            this.numberedTextBoxUC1.Load += new System.EventHandler(this.numberedTextBoxUC1_Load);
             // 
             // tvOutline
             // 
@@ -117,6 +119,7 @@ namespace LSLEditor
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 

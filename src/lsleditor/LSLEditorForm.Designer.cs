@@ -1,33 +1,33 @@
 namespace LSLEditor
 {
-	partial class LSLEditorForm
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+    partial class LSLEditorForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             LSLEditor.Docking.DockPanelSkin dockPanelSkin1 = new LSLEditor.Docking.DockPanelSkin();
             LSLEditor.Docking.AutoHideStripSkin autoHideStripSkin1 = new LSLEditor.Docking.AutoHideStripSkin();
@@ -50,6 +50,7 @@ namespace LSLEditor
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lSLIScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notecardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openProjectSolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,7 +151,6 @@ namespace LSLEditor
             this.openSolutionFilesDialog = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dockPanel = new LSLEditor.Docking.DockPanel();
-            this.lSLIScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -235,6 +235,16 @@ namespace LSLEditor
             this.newFileToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.newFileToolStripMenuItem.Text = "LSL Script";
             this.newFileToolStripMenuItem.Click += new System.EventHandler(this.newFileToolStripMenuItem_Click);
+            // 
+            // lSLIScriptToolStripMenuItem
+            // 
+            this.lSLIScriptToolStripMenuItem.Image = global::LSLEditor.Properties.Resources.NEWDOC;
+            this.lSLIScriptToolStripMenuItem.Name = "lSLIScriptToolStripMenuItem";
+            this.lSLIScriptToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.lSLIScriptToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.lSLIScriptToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.lSLIScriptToolStripMenuItem.Text = "LSLI Script";
+            this.lSLIScriptToolStripMenuItem.Click += new System.EventHandler(this.lSLIScriptToolStripMenuItem_Click);
             // 
             // notecardToolStripMenuItem
             // 
@@ -348,6 +358,7 @@ namespace LSLEditor
             this.importExampleToolStripMenuItem.Name = "importExampleToolStripMenuItem";
             this.importExampleToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.importExampleToolStripMenuItem.Text = "Import Example...";
+            this.importExampleToolStripMenuItem.Visible = false;
             this.importExampleToolStripMenuItem.Click += new System.EventHandler(this.importExampleToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
@@ -801,7 +812,7 @@ namespace LSLEditor
             this.toolsStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
             this.toolsStripMenuItem.Name = "toolsStripMenuItem";
-            this.toolsStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsStripMenuItem.Text = "Tools";
             // 
             // optionsToolStripMenuItem
@@ -887,6 +898,7 @@ namespace LSLEditor
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(210, 22);
             this.toolStripMenuItem9.Text = "Ask a Question / Get Help";
+            this.toolStripMenuItem9.Visible = false;
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click_1);
             // 
             // toolStripSeparator8
@@ -911,6 +923,7 @@ namespace LSLEditor
             this.makeBugReporttoolStripMenuItem.Name = "makeBugReporttoolStripMenuItem";
             this.makeBugReporttoolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.makeBugReporttoolStripMenuItem.Text = "Bug report...";
+            this.makeBugReporttoolStripMenuItem.Visible = false;
             this.makeBugReporttoolStripMenuItem.Click += new System.EventHandler(this.makeBugReporttoolStripMenuItem_Click);
             // 
             // toolStripSeparator12
@@ -922,7 +935,7 @@ namespace LSLEditor
             // 
             this.releaseNotesToolStripMenuItem.Name = "releaseNotesToolStripMenuItem";
             this.releaseNotesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.releaseNotesToolStripMenuItem.Text = "Release Notes...";
+            this.releaseNotesToolStripMenuItem.Text = "Release Notes ...";
             this.releaseNotesToolStripMenuItem.Click += new System.EventHandler(this.releaseNotesToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
@@ -968,6 +981,7 @@ namespace LSLEditor
             // openSolutionFilesDialog
             // 
             this.openSolutionFilesDialog.FileName = "openFileDialog2";
+            this.openSolutionFilesDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openSolutionFilesDialog_FileOk);
             // 
             // dockPanel
             // 
@@ -1023,16 +1037,6 @@ namespace LSLEditor
             this.dockPanel.Skin = dockPanelSkin1;
             this.dockPanel.TabIndex = 10;
             // 
-            // lSLIScriptToolStripMenuItem
-            // 
-            this.lSLIScriptToolStripMenuItem.Image = global::LSLEditor.Properties.Resources.NEWDOC;
-            this.lSLIScriptToolStripMenuItem.Name = "lSLIScriptToolStripMenuItem";
-            this.lSLIScriptToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.lSLIScriptToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.lSLIScriptToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.lSLIScriptToolStripMenuItem.Text = "LSLI Script";
-            this.lSLIScriptToolStripMenuItem.Click += new System.EventHandler(this.lSLIScriptToolStripMenuItem_Click);
-            // 
             // LSLEditorForm
             // 
             this.AllowDrop = true;
@@ -1060,95 +1064,95 @@ namespace LSLEditor
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem fileStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-		private System.Windows.Forms.ToolStripMenuItem importExampleToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-		private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripMenuItem copyToClipboardToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem importExampleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem copyToClipboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem projectStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem debugStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem helpStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-		private System.Windows.Forms.ToolStripMenuItem formatDocumentToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-		private System.Windows.Forms.OpenFileDialog openNoteFilesDialog;
-		private System.Windows.Forms.SaveFileDialog saveNoteFilesDialog;
-		private System.Windows.Forms.OpenFileDialog openScriptFilesDialog;
-		private System.Windows.Forms.SaveFileDialog saveScriptFilesDialog;
-		private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projectStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem debugStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem advancedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem formatDocumentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openNoteFilesDialog;
+        private System.Windows.Forms.SaveFileDialog saveNoteFilesDialog;
+        private System.Windows.Forms.OpenFileDialog openScriptFilesDialog;
+        private System.Windows.Forms.SaveFileDialog saveScriptFilesDialog;
+        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatSelectedTextToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem helpKeywordToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem helpKeywordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
-		private System.Windows.Forms.ToolStripMenuItem FindtoolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-		private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripMenuItem FindtoolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem closeTabToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem closeTabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-		private System.Windows.Forms.ToolStripMenuItem commentInToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem uncommentingSelectedTextToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem commentInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uncommentingSelectedTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem viewlStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem solutionExplorerToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem openProjectSolutionToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem openScriptFilesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
-		private System.Windows.Forms.ToolStripMenuItem existingProjectToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator addToolStripSeparator;
-		private System.Windows.Forms.ToolStripMenuItem closeFileToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem closeSolutiontoolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
-		private System.Windows.Forms.ToolStripMenuItem addNewObjecttoolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolsStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem recentFileToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
-		private System.Windows.Forms.ToolStripMenuItem printPreviewtoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewlStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem solutionExplorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openProjectSolutionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openScriptFilesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
+        private System.Windows.Forms.ToolStripMenuItem existingProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator addToolStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem closeFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeSolutiontoolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
+        private System.Windows.Forms.ToolStripMenuItem addNewObjecttoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recentFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
+        private System.Windows.Forms.ToolStripMenuItem printPreviewtoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem makeBugReporttoolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem recentProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recentProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
-		private System.Windows.Forms.ToolStripMenuItem syntaxCheckerToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem findNextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
+        private System.Windows.Forms.ToolStripMenuItem syntaxCheckerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findNextToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewFileToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pageSettingsToolStripMenuItem;
-		private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
-		private System.Windows.Forms.ToolStripMenuItem SaveAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pageSettingsToolStripMenuItem;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.ToolStripMenuItem SaveAllToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openSolutionFilesDialog;
         private System.Windows.Forms.ToolStripMenuItem notecardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
@@ -1162,7 +1166,7 @@ namespace LSLEditor
         private System.Windows.Forms.ToolStripMenuItem closeActiveWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem releaseNotesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem openNotecardFilesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openNotecardFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem CollapseToLSLIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem expandToLSLToolStripMenuItem;

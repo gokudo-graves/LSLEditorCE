@@ -193,31 +193,31 @@ namespace LSLEditor
 			// mainMenu1
 			// 
 			this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem1,
-            this.menuItem8,
-            this.menuItem12,
-            this.menuItem2});
+			this.menuItem1,
+			this.menuItem8,
+			this.menuItem12,
+			this.menuItem2});
 			// 
 			// menuItem1
 			// 
 			this.menuItem1.Index = 0;
 			this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem11,
-            this.menuItem4,
-            this.menuItem41,
-            this.menuItem40,
-            this.menuItem42,
-            this.menuItemUploadScript,
-            this.menuItem15,
-            this.menuItem13,
-            this.menuItem5,
-            this.menuItem7,
-            this.menuItem35,
-            this.menuItem34,
-            this.menuItem36,
-            this.menuItem31,
-            this.menuItem32,
-            this.menuItem6});
+			this.menuItem11,
+			this.menuItem4,
+			this.menuItem41,
+			this.menuItem40,
+			this.menuItem42,
+			this.menuItemUploadScript,
+			this.menuItem15,
+			this.menuItem13,
+			this.menuItem5,
+			this.menuItem7,
+			this.menuItem35,
+			this.menuItem34,
+			this.menuItem36,
+			this.menuItem31,
+			this.menuItem32,
+			this.menuItem6});
 			this.menuItem1.Text = "File";
 			// 
 			// menuItem11
@@ -317,17 +317,17 @@ namespace LSLEditor
 			// 
 			this.menuItem8.Index = 1;
 			this.menuItem8.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem24,
-            this.menuItem23,
-            this.menuItem25,
-            this.menuItem22,
-            this.menuItem21,
-            this.menuItem20,
-            this.menuItem26,
-            this.menuItem28,
-            this.menuItem27,
-            this.menuItem37,
-            this.menuItem9});
+			this.menuItem24,
+			this.menuItem23,
+			this.menuItem25,
+			this.menuItem22,
+			this.menuItem21,
+			this.menuItem20,
+			this.menuItem26,
+			this.menuItem28,
+			this.menuItem27,
+			this.menuItem37,
+			this.menuItem9});
 			this.menuItem8.Text = "Edit";
 			// 
 			// menuItem24
@@ -394,8 +394,8 @@ namespace LSLEditor
 			// 
 			this.menuItem37.Index = 9;
 			this.menuItem37.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem38,
-            this.menuItem39});
+			this.menuItem38,
+			this.menuItem39});
 			this.menuItem37.Text = "Advanced";
 			// 
 			// menuItem38
@@ -422,10 +422,10 @@ namespace LSLEditor
 			// 
 			this.menuItem12.Index = 2;
 			this.menuItem12.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem14,
-            this.menuItem33,
-            this.menuItem29,
-            this.menuItem30});
+			this.menuItem14,
+			this.menuItem33,
+			this.menuItem29,
+			this.menuItem30});
 			this.menuItem12.Text = "Compiler";
 			// 
 			// menuItem14
@@ -456,11 +456,11 @@ namespace LSLEditor
 			// 
 			this.menuItem2.Index = 3;
 			this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem16,
-            this.menuItem17,
-            this.menuItem18,
-            this.menuItem19,
-            this.menuItem3});
+			this.menuItem16,
+			this.menuItem17,
+			this.menuItem18,
+			this.menuItem19,
+			this.menuItem3});
 			this.menuItem2.Text = "Help";
 			// 
 			// menuItem16
@@ -528,7 +528,7 @@ namespace LSLEditor
 			// statusStrip1
 			// 
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+			this.toolStripStatusLabel1});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 331);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(592, 22);
@@ -544,7 +544,7 @@ namespace LSLEditor
 			// contextMenu1
 			// 
 			this.contextMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem10});
+			this.menuItem10});
 			// 
 			// menuItem10
 			// 

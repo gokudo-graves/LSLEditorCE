@@ -2490,7 +2490,8 @@ namespace LSLEditor
 					strData = DateTime.Now.ToString("yyyy-MM-dd");
 					break;
 				case DATA_RATING:
-					break;
+                    strData = "[0, 0, 0, 0, 0, 0]"; // Default - Feature no longer used
+                    break;
 				case DATA_PAYINFO:
 					break;
 				default:

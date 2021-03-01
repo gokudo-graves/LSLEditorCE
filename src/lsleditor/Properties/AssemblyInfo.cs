@@ -50,12 +50,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("LSL-Editor Community Edition")]
+[assembly: AssemblyTitle("LSL-Editor Community Edition 2021032")]
 [assembly: AssemblyDescription("LSL-Editor for editing and compiling LSL scripts")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LSL Editor")]
-[assembly: AssemblyCopyright("2006 - 2018")]
+[assembly: AssemblyProduct("LSL Editor 2021032")]
+[assembly: AssemblyCopyright("2006 - 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -66,11 +66,12 @@ using System.Runtime.InteropServices;
 //      Minor Version
 //      Build Number
 //      Revision
+//      Julian Day of current version -- 2021032
 //
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
 //
-[assembly: AssemblyVersion("2.56.0.0")]
+[assembly: AssemblyVersion("2.57.0.0")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the
@@ -100,4 +101,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyName("")]
 [assembly: ComVisibleAttribute(false)]
-[assembly: AssemblyFileVersionAttribute("2.56.0.0")]
+[assembly: AssemblyFileVersionAttribute("2.57.0.0")]

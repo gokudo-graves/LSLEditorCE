@@ -49,141 +49,141 @@ using System.Collections.Generic;
 
 namespace LSLEditor
 {
-	public partial class EditForm : DockContent
-	{
-		public RuntimeConsole runtime;
+    public partial class EditForm : DockContent
+    {
+        public RuntimeConsole runtime;
 
         public List<string> verboseQueue = new List<string>();
 
         private bool m_IsNew;
         private string m_FullPathName;
-		private Guid m_Guid;
-		// private bool sOutline = true;
-		public LSLEditorForm parent;
-		public Encoding encodedAs = null;
+        private Guid m_Guid;
+        // private bool sOutline = true;
+        public LSLEditorForm parent;
+        public Encoding encodedAs = null;
 
-		private const int WM_NCACTIVATE = 0x0086;
-		protected override void WndProc(ref Message m)
-		{
-			if (m.Msg == WM_NCACTIVATE) {
-				if (m.LParam != IntPtr.Zero) {
-					m.WParam = new IntPtr(1);
-				} else {
-					this.numberedTextBoxUC1.TextBox.MakeAllInvis();
-				}
-			}
-			try { base.WndProc(ref m); } catch { }
-		}
+        private const int WM_NCACTIVATE = 0x0086;
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_NCACTIVATE) {
+                if (m.LParam != IntPtr.Zero) {
+                    m.WParam = new IntPtr(1);
+                } else {
+                    this.numberedTextBoxUC1.TextBox.MakeAllInvis();
+                }
+            }
+            try { base.WndProc(ref m); } catch { }
+        }
 
-		public SyntaxRichTextBox TextBox
-		{
-			get
-			{
-				return this.numberedTextBoxUC1.TextBox;
-			}
-		}
+        public SyntaxRichTextBox TextBox
+        {
+            get
+            {
+                return this.numberedTextBoxUC1.TextBox;
+            }
+        }
 
-		public XmlDocument ConfLSL
-		{
-			get
-			{
-				return this.parent.ConfLSL;
-			}
-		}
+        public XmlDocument ConfLSL
+        {
+            get
+            {
+                return this.parent.ConfLSL;
+            }
+        }
 
-		public XmlDocument ConfCSharp
-		{
-			get
-			{
-				return this.parent.ConfCSharp;
-			}
-		}
+        public XmlDocument ConfCSharp
+        {
+            get
+            {
+                return this.parent.ConfCSharp;
+            }
+        }
 
-		public Guid guid
-		{
-			get
-			{
-				return m_Guid;
-			}
-			set
-			{
-				this.m_Guid = value;
-			}
-		}
+        public Guid guid
+        {
+            get
+            {
+                return m_Guid;
+            }
+            set
+            {
+                this.m_Guid = value;
+            }
+        }
 
-		public bool IsScript
-		{
-			get
-			{
-				return this.TextBox.ToolTipping;
-			}
-			set
-			{
-				if (value) {
-					this.tabPage1.Text = "Script";
-				} else {
-					this.tabPage1.Text = "Text";
-				}
-				this.TextBox.ToolTipping = value;
-			}
-		}
+        public bool IsScript
+        {
+            get
+            {
+                return this.TextBox.ToolTipping;
+            }
+            set
+            {
+                if (value) {
+                    this.tabPage1.Text = "Script";
+                } else {
+                    this.tabPage1.Text = "Text";
+                }
+                this.TextBox.ToolTipping = value;
+            }
+        }
 
-		public EditForm(LSLEditorForm lslEditorForm)
-		{
-			InitializeComponent();
+        public EditForm(LSLEditorForm lslEditorForm)
+        {
+            InitializeComponent();
 
-			this.guid = new Guid();
+            this.guid = new Guid();
 
-			this.components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
 
-			this.Icon = lslEditorForm.Icon;
-			this.parent = lslEditorForm;
-			this.numberedTextBoxUC1.TextBox.setEditform(this);
-			this.numberedTextBoxUC1.TextBox.Init(this.parent, this.parent.ConfLSL);
-			this.numberedTextBoxUC1.TextBox.OnDirtyChanged += new IsDirtyHandler(TextBox_OnDirtyChanged);
+            this.Icon = lslEditorForm.Icon;
+            this.parent = lslEditorForm;
+            this.numberedTextBoxUC1.TextBox.setEditform(this);
+            this.numberedTextBoxUC1.TextBox.Init(this.parent, this.parent.ConfLSL);
+            this.numberedTextBoxUC1.TextBox.OnDirtyChanged += new IsDirtyHandler(TextBox_OnDirtyChanged);
 
-			this.Move += new EventHandler(EditForm_Position);
-			this.Resize += new EventHandler(EditForm_Position);
+            this.Move += new EventHandler(EditForm_Position);
+            this.Resize += new EventHandler(EditForm_Position);
 
-			this.Layout += new LayoutEventHandler(EditForm_Layout);
-			ImageList imageList = new ImageList();
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Unknown.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Functions.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Events.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Constants.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Class.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Vars.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.Properties.gif"));
-			imageList.Images.Add(new Bitmap(this.GetType(), "Images.States.gif"));
+            this.Layout += new LayoutEventHandler(EditForm_Layout);
+            ImageList imageList = new ImageList();
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Unknown.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Functions.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Events.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Constants.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Class.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Vars.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.Properties.gif"));
+            imageList.Images.Add(new Bitmap(this.GetType(), "Images.States.gif"));
 
-			this.tvOutline.ImageList = imageList;
-			if (lslEditorForm.outlineToolStripMenuItem.Checked) {
-				splitContainer1.Panel2Collapsed = false;
-			} else {
-				splitContainer1.Panel2Collapsed = true;
-			}
-			SetFont();
-		}
+            this.tvOutline.ImageList = imageList;
+            if (lslEditorForm.outlineToolStripMenuItem.Checked) {
+                splitContainer1.Panel2Collapsed = false;
+            } else {
+                splitContainer1.Panel2Collapsed = true;
+            }
+            SetFont();
+        }
 
-		public void SetFont()
-		{
-			this.numberedTextBoxUC1.Font = Properties.Settings.Default.FontEditor;
-		}
+        public void SetFont()
+        {
+            this.numberedTextBoxUC1.Font = Properties.Settings.Default.FontEditor;
+        }
 
-		void EditForm_Layout(object sender, LayoutEventArgs e)
-		{
-			if (this.WindowState == FormWindowState.Minimized) {
-				this.numberedTextBoxUC1.TextBox.MakeAllInvis();
-			}
-		}
+        void EditForm_Layout(object sender, LayoutEventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized) {
+                this.numberedTextBoxUC1.TextBox.MakeAllInvis();
+            }
+        }
 
-		void EditForm_Position(object sender, EventArgs e)
-		{
-			//this.numberedTextBoxUC1.TextBox.SetPosition(this.MdiParent.RectangleToScreen(this.MdiParent.ClientRectangle));
-		}
+        void EditForm_Position(object sender, EventArgs e)
+        {
+            //this.numberedTextBoxUC1.TextBox.SetPosition(this.MdiParent.RectangleToScreen(this.MdiParent.ClientRectangle));
+        }
 
-		void TextBox_OnDirtyChanged(object sender, EventArgs e)
-		{
+        void TextBox_OnDirtyChanged(object sender, EventArgs e)
+        {
             if(parent.IsReadOnly(this))
             {
                 Dirty = false;
@@ -204,143 +204,143 @@ namespace LSLEditor
             else
             {
                 this.Text = this.ScriptName;
-			    if (this.numberedTextBoxUC1.TextBox.Dirty) {
-				    this.Text = this.Text.Trim() + "*  ";
-			    } else {
-				    this.Text = this.Text.Trim() + "   ";
-			    }
+                if (this.numberedTextBoxUC1.TextBox.Dirty) {
+                    this.Text = this.Text.Trim() + "*  ";
+                } else {
+                    this.Text = this.Text.Trim() + "   ";
+                }
             }
 
             TabPage tabPage = this.Tag as TabPage;
-			if (tabPage != null) {
-				tabPage.Text = this.Text;
-			}
+            if (tabPage != null) {
+                tabPage.Text = this.Text;
+            }
 
-			this.parent.OnDirtyChanged(this.numberedTextBoxUC1.TextBox.Dirty);
-		}
+            this.parent.OnDirtyChanged(this.numberedTextBoxUC1.TextBox.Dirty);
+        }
 
-		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             this.Close();
-		}
+        }
 
-		public string FullPathName
-		{
-			get
-			{
-				return this.m_FullPathName;
-			}
-			set
-			{
-				this.m_FullPathName = value;
-				string strDirectory = Path.GetDirectoryName(this.m_FullPathName);
-				if (Directory.Exists(strDirectory)) {
-					Properties.Settings.Default.WorkingDirectory = strDirectory;
-				} else {
-					if (!Directory.Exists(Properties.Settings.Default.WorkingDirectory)) {
-						Properties.Settings.Default.WorkingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-					}
-					this.m_IsNew = true;
-					this.m_FullPathName = Path.Combine(Properties.Settings.Default.WorkingDirectory, this.m_FullPathName);
-				}
-				this.Text = this.ScriptName;
-				TabPage tabPage = this.Tag as TabPage;
-				if (tabPage != null) {
-					tabPage.Text = this.Text + "   ";
-				}
-			}
-		}
+        public string FullPathName
+        {
+            get
+            {
+                return this.m_FullPathName;
+            }
+            set
+            {
+                this.m_FullPathName = value;
+                string strDirectory = Path.GetDirectoryName(this.m_FullPathName);
+                if (Directory.Exists(strDirectory)) {
+                    Properties.Settings.Default.WorkingDirectory = strDirectory;
+                } else {
+                    if (!Directory.Exists(Properties.Settings.Default.WorkingDirectory)) {
+                        Properties.Settings.Default.WorkingDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                    }
+                    this.m_IsNew = true;
+                    this.m_FullPathName = Path.Combine(Properties.Settings.Default.WorkingDirectory, this.m_FullPathName);
+                }
+                this.Text = this.ScriptName;
+                TabPage tabPage = this.Tag as TabPage;
+                if (tabPage != null) {
+                    tabPage.Text = this.Text + "   ";
+                }
+            }
+        }
 
-		public bool IsNew
-		{
-			get
-			{
-				return this.m_IsNew;
-			}
-		}
+        public bool IsNew
+        {
+            get
+            {
+                return this.m_IsNew;
+            }
+        }
 
-		public string ScriptName
-		{
-			get
-			{
-				return Path.GetFileName(this.m_FullPathName);
-			}
-		}
+        public string ScriptName
+        {
+            get
+            {
+                return Path.GetFileName(this.m_FullPathName);
+            }
+        }
 
-		public string ProjectName
-		{
-			get
-			{
-				return parent.SolutionExplorer.GetProjectName(this.guid);
-			}
-		}
+        public string ProjectName
+        {
+            get
+            {
+                return parent.SolutionExplorer.GetProjectName(this.guid);
+            }
+        }
 
-		public string SourceCode
-		{
-			get
-			{
-				return this.numberedTextBoxUC1.TextBox.Text;
-			}
-			set
-			{
-				this.numberedTextBoxUC1.TextBox.Text = value;
-			}
-		}
+        public string SourceCode
+        {
+            get
+            {
+                return this.numberedTextBoxUC1.TextBox.Text;
+            }
+            set
+            {
+                this.numberedTextBoxUC1.TextBox.Text = value;
+            }
+        }
 
-		private int PercentageIndentTab()
-		{
-			int intResult;
-			int intSpaces = 0;
-			int intTabs = 0;
-			StringReader sr = new StringReader(this.TextBox.Text);
-			while (true) {
-				string strLine = sr.ReadLine();
-				if (strLine == null) break;
-				if (strLine.Length == 0) continue;
-				if (strLine[0] == ' ') {
-					intSpaces++;
-				} else if (strLine[0] == '\t') {
-					intTabs++;
-				}
-			}
-			if (intTabs == 0 && intSpaces == 0) {
-				intResult = 50;
-			} else {
-				intResult = (int)Math.Round((100.0 * intTabs) / (intTabs + intSpaces));
-			}
-			return intResult;
-		}
+        private int PercentageIndentTab()
+        {
+            int intResult;
+            int intSpaces = 0;
+            int intTabs = 0;
+            StringReader sr = new StringReader(this.TextBox.Text);
+            while (true) {
+                string strLine = sr.ReadLine();
+                if (strLine == null) break;
+                if (strLine.Length == 0) continue;
+                if (strLine[0] == ' ') {
+                    intSpaces++;
+                } else if (strLine[0] == '\t') {
+                    intTabs++;
+                }
+            }
+            if (intTabs == 0 && intSpaces == 0) {
+                intResult = 50;
+            } else {
+                intResult = (int)Math.Round((100.0 * intTabs) / (intTabs + intSpaces));
+            }
+            return intResult;
+        }
 
-		public void LoadFile(string strPath)
-		{
-			if (strPath.StartsWith("http://")) {
-				this.FullPathName = Path.GetFileName(strPath);
-			} else {
-				this.FullPathName = strPath;
-			}
-			this.encodedAs = this.numberedTextBoxUC1.TextBox.LoadFile(strPath);
+        public void LoadFile(string strPath)
+        {
+            if (strPath.StartsWith("http://")) {
+                this.FullPathName = Path.GetFileName(strPath);
+            } else {
+                this.FullPathName = strPath;
+            }
+            this.encodedAs = this.numberedTextBoxUC1.TextBox.LoadFile(strPath);
 
-			if (this.IsScript) {
+            if (this.IsScript) {
 
-				if (Properties.Settings.Default.IndentAutoCorrect) {
-					this.TextBox.FormatDocument();
-					this.TextBox.ClearUndoStack();
-				} else {
-					if (Properties.Settings.Default.IndentWarning) {
-						if ((PercentageIndentTab() > 50 && Properties.Settings.Default.SL4SpacesIndent) ||
-							(PercentageIndentTab() < 50 && !Properties.Settings.Default.SL4SpacesIndent)) {
-							if (MessageBox.Show("Indent scheme differs from settings\nDo you want to correct it?\nIt can also be corrected by pressing Ctrl-D or turn on Autocorrection (tools menu)", "Indent Warning!!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
-								this.TextBox.FormatDocument();
-								//this.TextBox.ClearUndoStack();
-							}
-						}
-					}
-				}
-			}
-		}
+                if (Properties.Settings.Default.IndentAutoCorrect) {
+                    this.TextBox.FormatDocument();
+                    this.TextBox.ClearUndoStack();
+                } else {
+                    if (Properties.Settings.Default.IndentWarning) {
+                        if ((PercentageIndentTab() > 50 && Properties.Settings.Default.SL4SpacesIndent) ||
+                            (PercentageIndentTab() < 50 && !Properties.Settings.Default.SL4SpacesIndent)) {
+                            if (MessageBox.Show("Indent scheme differs from settings\nDo you want to correct it?\nIt can also be corrected by pressing Ctrl-D or turn on Autocorrection (tools menu)", "Indent Warning!!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) {
+                                this.TextBox.FormatDocument();
+                                //this.TextBox.ClearUndoStack();
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		public void SaveCurrentFile(string strPath)
-		{
+        public void SaveCurrentFile(string strPath)
+        {
             // Check if this is an expanded.lsl
             if (LSLIPathHelper.IsExpandedLSL(strPath))
             {
@@ -402,73 +402,73 @@ namespace LSLEditor
                 this.numberedTextBoxUC1.TextBox.SaveCurrentFile(strPath, encodeAs);
                 this.encodedAs = encodeAs;
             }
-			this.m_IsNew = false;
+            this.m_IsNew = false;
         }
 
-		public void SaveCurrentFile()
-		{
-			this.SaveCurrentFile(this.FullPathName);
-		}
+        public void SaveCurrentFile()
+        {
+            this.SaveCurrentFile(this.FullPathName);
+        }
 
-		public bool Dirty
-		{
-			get
-			{
-				return this.numberedTextBoxUC1.TextBox.Dirty;
-			}
-			set
-			{
-				this.numberedTextBoxUC1.TextBox.Dirty = value;
-			}
-		}
+        public bool Dirty
+        {
+            get
+            {
+                return this.numberedTextBoxUC1.TextBox.Dirty;
+            }
+            set
+            {
+                this.numberedTextBoxUC1.TextBox.Dirty = value;
+            }
+        }
 
-		public TabControl tabControl
-		{
-			get
-			{
-				return this.tabControl1;
-			}
-		}
+        public TabControl tabControl
+        {
+            get
+            {
+                return this.tabControl1;
+            }
+        }
 
-		public void SetFocus()
-		{
-			this.numberedTextBoxUC1.TextBox.Focus();
-		}
+        public void SetFocus()
+        {
+            this.numberedTextBoxUC1.TextBox.Focus();
+        }
 
-		public void StopCompiler()
-		{
-			this.numberedTextBoxUC1.TextBox.MakeAllInvis();
+        public void StopCompiler()
+        {
+            this.numberedTextBoxUC1.TextBox.MakeAllInvis();
 
-			if (runtime != null) {
-				this.components.Remove(runtime);
-				if (!runtime.IsDisposed) {
-					runtime.Dispose();
-				}
-				runtime = null;
-			}
+            if (runtime != null) {
+                this.components.Remove(runtime);
+                if (!runtime.IsDisposed) {
+                    runtime.Dispose();
+                }
+                runtime = null;
+            }
 
-			for (int intI = this.tabControl1.TabPages.Count - 1; intI > 0; intI--) {
-				this.tabControl1.TabPages.RemoveAt(intI);
-			}
-		}
+            for (int intI = this.tabControl1.TabPages.Count - 1; intI > 0; intI--) {
+                this.tabControl1.TabPages.RemoveAt(intI);
+            }
+        }
 
-		public SecondLifeHost.SecondLifeHostChatHandler ChatHandler;
-		public SecondLifeHost.SecondLifeHostMessageLinkedHandler MessageLinkedHandler;
+        public SecondLifeHost.SecondLifeHostChatHandler ChatHandler;
+        public SecondLifeHost.SecondLifeHostMessageLinkedHandler MessageLinkedHandler;
 
-		public bool StartCompiler()
-		{
-			bool blnResult = false;
-			//if (this.disableCompilesyntaxCheckToolStripMenuItem.Checked)
-			//	return false;
+        public bool StartCompiler()
+        {
+            bool blnResult = false;
+            //if (this.disableCompilesyntaxCheckToolStripMenuItem.Checked)
+            //	return false;
 
-			if (this.IsScript) {
-				StopCompiler();
+            if (this.IsScript) {
+                StopCompiler();
 
-				if (this.parent != null) {
-					runtime = new RuntimeConsole(this.parent);
+                if (this.parent != null) {
+                    runtime = new RuntimeConsole(this.parent);
 
-					// for disposing
-					this.components.Add(runtime);
+                    // for disposing
+                    this.components.Add(runtime);
 
                     foreach (string message in verboseQueue)
                     {
@@ -483,29 +483,29 @@ namespace LSLEditor
                         }
                     }
 
-					if (!runtime.Compile(this)) {
-						this.tabControl1.SelectedIndex = 0;
-						return false;
-					}
+                    if (!runtime.Compile(this)) {
+                        this.tabControl1.SelectedIndex = 0;
+                        return false;
+                    }
 
 
                     TabPage tabPage = new TabPage("Debug");
-					tabPage.Controls.Add(runtime);
-					this.tabControl1.TabPages.Add(tabPage);
-					this.tabControl1.SelectedIndex = 1;
-					blnResult = true;
-				}
-			}
-			return blnResult;
-		}
+                    tabPage.Controls.Add(runtime);
+                    this.tabControl1.TabPages.Add(tabPage);
+                    this.tabControl1.SelectedIndex = 1;
+                    blnResult = true;
+                }
+            }
+            return blnResult;
+        }
 
-		public bool SyntaxCheck()
-		{
-			bool blnResult = false;
-			//if (this.disableCompilesyntaxCheckToolStripMenuItem.Checked)
-			//	return false;
+        public bool SyntaxCheck()
+        {
+            bool blnResult = false;
+            //if (this.disableCompilesyntaxCheckToolStripMenuItem.Checked)
+            //	return false;
 
-			if (this.IsScript) {
+            if (this.IsScript) {
                 string lsl = SourceCode;
 
                 // If it is LSLI, it needs to import scripts first, before it recognizes imported functions
@@ -515,46 +515,46 @@ namespace LSLEditor
                     lsl = converter.ExpandToLSL(this);
                 }
 
-				LSL2CSharp translator = new LSL2CSharp(ConfLSL);
-				string strCSharp = translator.Parse(lsl);
+                LSL2CSharp translator = new LSL2CSharp(ConfLSL);
+                string strCSharp = translator.Parse(lsl);
 
-				if (System.Diagnostics.Debugger.IsAttached) {
-					for (int intI = this.tabControl1.TabPages.Count - 1; intI > 0; intI--) {
-						this.tabControl1.TabPages.RemoveAt(intI);
-					}
+                if (System.Diagnostics.Debugger.IsAttached) {
+                    for (int intI = this.tabControl1.TabPages.Count - 1; intI > 0; intI--) {
+                        this.tabControl1.TabPages.RemoveAt(intI);
+                    }
 
-					// TODO
-					TabPage tabPage = new TabPage("C#");
-					NumberedTextBox.NumberedTextBoxUC numberedTextBoxUC1 = new NumberedTextBox.NumberedTextBoxUC();
-					numberedTextBoxUC1.TextBox.Init(null, this.ConfCSharp);
-					numberedTextBoxUC1.TextBox.Text = strCSharp;
-					numberedTextBoxUC1.TextBox.ReadOnly = true;
-					numberedTextBoxUC1.Dock = DockStyle.Fill;
-					tabPage.Controls.Add(numberedTextBoxUC1);
-					this.tabControl.TabPages.Add(tabPage);
-				}
-				blnResult = (null != CompilerHelper.CompileCSharp(this, strCSharp));
-			}
-			return blnResult;
-		}
+                    // TODO
+                    TabPage tabPage = new TabPage("C#");
+                    NumberedTextBox.NumberedTextBoxUC numberedTextBoxUC1 = new NumberedTextBox.NumberedTextBoxUC();
+                    numberedTextBoxUC1.TextBox.Init(null, this.ConfCSharp);
+                    numberedTextBoxUC1.TextBox.Text = strCSharp;
+                    numberedTextBoxUC1.TextBox.ReadOnly = true;
+                    numberedTextBoxUC1.Dock = DockStyle.Fill;
+                    tabPage.Controls.Add(numberedTextBoxUC1);
+                    this.tabControl.TabPages.Add(tabPage);
+                }
+                blnResult = (null != CompilerHelper.CompileCSharp(this, strCSharp));
+            }
+            return blnResult;
+        }
 
-		public int Find(string strSearch, int intStart, int intEnd, RichTextBoxFinds options)
-		{
-			intStart = this.numberedTextBoxUC1.TextBox.Find(strSearch, intStart, intEnd, options);
-			this.numberedTextBoxUC1.TextBox.Focus();
-			return intStart;
-		}
+        public int Find(string strSearch, int intStart, int intEnd, RichTextBoxFinds options)
+        {
+            intStart = this.numberedTextBoxUC1.TextBox.Find(strSearch, intStart, intEnd, options);
+            this.numberedTextBoxUC1.TextBox.Focus();
+            return intStart;
+        }
 
-		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			this.numberedTextBoxUC1.TextBox.MakeAllInvis();
-		}
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.numberedTextBoxUC1.TextBox.MakeAllInvis();
+        }
 
-		private void EditForm_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			this.parent.CancelClosing = false;
-			this.parent.ActivateMdiForm(this);
-			if (this.Dirty) {
+        private void EditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.parent.CancelClosing = false;
+            this.parent.ActivateMdiForm(this);
+            if (this.Dirty) {
                 string scriptToSave = ScriptName;
                 if (LSLIPathHelper.IsExpandedLSL(ScriptName))
                 {
@@ -563,12 +563,12 @@ namespace LSLEditor
                 }
 
                 DialogResult dialogResult = MessageBox.Show(this, @"Save """ + scriptToSave + @"""?", "File has changed", MessageBoxButtons.YesNoCancel);
-				if (dialogResult == DialogResult.Yes) {
-					e.Cancel = !this.parent.SaveFile(this, false);
-				} else {
-					e.Cancel = (dialogResult == DialogResult.Cancel);
+                if (dialogResult == DialogResult.Yes) {
+                    e.Cancel = !this.parent.SaveFile(this, false);
+                } else {
+                    e.Cancel = (dialogResult == DialogResult.Cancel);
                 }
-			}
+            }
 
             if (!e.Cancel)
             {
@@ -602,49 +602,54 @@ namespace LSLEditor
                 }
             }
             this.parent.CancelClosing = e.Cancel;
-		}
+        }
 
-		private void disableCompilesyntaxCheckToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			//this.disableCompilesyntaxCheckToolStripMenuItem.Checked = !this.disableCompilesyntaxCheckToolStripMenuItem.Checked;
-		}
+        private void disableCompilesyntaxCheckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //this.disableCompilesyntaxCheckToolStripMenuItem.Checked = !this.disableCompilesyntaxCheckToolStripMenuItem.Checked;
+        }
 
-		private void tvOutline_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-		{
-			this.parent.BeginInvoke(new TreeNodeMouseClickEventHandler(
-				delegate(object sender2, TreeNodeMouseClickEventArgs e2)
-				{
-					if (e.Node.Tag is Helpers.OutlineHelper) {
-						Helpers.OutlineHelper ohOutline = (Helpers.OutlineHelper)e.Node.Tag;
-						if (ohOutline.line < this.TextBox.Lines.Length) {
-							//editForm.Focus();
-							//editForm.TextBox.Select();
-							//editForm.TextBox.Goto(ohOutline.line + 1);
+        private void tvOutline_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            this.parent.BeginInvoke(new TreeNodeMouseClickEventHandler(
+                delegate(object sender2, TreeNodeMouseClickEventArgs e2)
+                {
+                    if (e.Node.Tag is Helpers.OutlineHelper) {
+                        Helpers.OutlineHelper ohOutline = (Helpers.OutlineHelper)e.Node.Tag;
+                        if (ohOutline.line < this.TextBox.Lines.Length) {
+                            //editForm.Focus();
+                            //editForm.TextBox.Select();
+                            //editForm.TextBox.Goto(ohOutline.line + 1);
 
-							//TextBox.Focus();
-							this.TextBox.Select();
-							this.TextBox.SelectionStart = this.TextBox.GetFirstCharIndexFromLine(ohOutline.line);
+                            //TextBox.Focus();
+                            this.TextBox.Select();
+                            this.TextBox.SelectionStart = this.TextBox.GetFirstCharIndexFromLine(ohOutline.line);
 
 
-						}
-					}
-				}), sender, e);
-		}
+                        }
+                    }
+                }), sender, e);
+        }
 
-		private void tvOutline_AfterSelect(object sender, TreeViewEventArgs e)
-		{
+        private void tvOutline_AfterSelect(object sender, TreeViewEventArgs e)
+        {
 
-			//this.TextBox.Select
-		}
+            //this.TextBox.Select
+        }
 
-		private void splitContainer1_Click(object sender, EventArgs e)
-		{
+        private void splitContainer1_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void tvOutline_VisibleChanged(object sender, EventArgs e)
-		{
-			this.tvOutline.ExpandAll();
+        private void tvOutline_VisibleChanged(object sender, EventArgs e)
+        {
+            this.tvOutline.ExpandAll();
+        }
+
+        private void numberedTextBoxUC1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
